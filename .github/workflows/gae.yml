@@ -22,12 +22,18 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: Gcp Auth
+      uses: 'google-github-actions/auth@v1'
+      with: 
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+        
     - name: Deploy to App Engine
       uses: google-github-actions/deploy-appengine@v2.1.0
       with:
         deliverables: app.yaml
-        project_id: ${{ secrets.GCP_PROJECT }}
-        credentials: ${{ secrets.GCP_CREDENTIALS }}
+#        project_id: ${{ secrets.GCP_PROJECT }}
+#        credentials: ${{ secrets.GCP_CREDENTIALS }}
 
     - name: Test
       run: curl "${{ steps.deploy.outputs.url }}"
