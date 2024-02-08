@@ -1,5 +1,5 @@
 runtime: java11
-service: atrucios
+service: default
 env: standard
 # remember to use an instance class compatible with your scaling type
 instance_class: B1
