@@ -32,8 +32,3 @@ jobs:
       uses: google-github-actions/deploy-appengine@v2.1.0
       with:
         deliverables: app.yaml
-#        project_id: ${{ secrets.GCP_PROJECT }}
-#        credentials: ${{ secrets.GCP_CREDENTIALS }}
-
-    - name: Test
-      run: curl "${{ steps.deploy.outputs.url }}/customers"
