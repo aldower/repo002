@@ -12,7 +12,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     rm /etc/localtime; \
 	dpkg-reconfigure -fnoninteractive tzdata
 
-COPY target/labmaven-0.0.1-SNAPSHOT.jar
+ADD target/labmaven-0.0.1-SNAPSHOT.jar app.jar
 ADD src/main/docker/entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
 
