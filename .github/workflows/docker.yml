@@ -35,6 +35,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Copy Directory
+      uses: MadaraUchiha/copy-action@0.0.1
+      with:
+        source: target/*.jar
+        target: target/*.jar
+          
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
